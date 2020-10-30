@@ -1,0 +1,18 @@
+today I did work on the below sql commands
+1.create table
+2.Inter data in the table
+3.select data from the table
+4.modify the data to use alter commands
+create table student21(id int(10) primary key,name char(10) not null,course char(10) not null);
+insert into student21(id,name,course)
+values('1','prathyusha','MCA');
+insert into student21(id,name,course)
+values('2','supraja','MCA');
+insert into student21(id,name,course)
+values('3','damu','Btech');
+select * from student21;
+select name from student21;
+select * from student21 where id=1;
+alter table student21 add email char(20) after course;
+alter table student21 modify course char(25);
+
