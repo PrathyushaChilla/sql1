@@ -1,0 +1,77 @@
+ create table employee (eno int(10) primary key,name char(20) not null,sal int(10),job char(10) not null);
+Query OK, 0 rows affected (0.39 sec)
+
+mysql> insert into employee(eno,name,sal,job)
+    -> values('1','latha','3500','C.A');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employee(eno,name,sal,job)
+    -> values('2','rekha','4000','s.e');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into employee(eno,name,sal,job)
+    -> values('3','murali','27000','DBA');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into employee(eno,name,sal,job)
+    -> values('4','pradeep','30000','s.e');
+Query OK, 1 row affected (0.08 sec)
+
+
+mysql> select * from employee;
++-----+---------+-------+-----+
+| eno | name    | sal   | job |
++-----+---------+-------+-----+
+|   1 | latha   |  3500 | C.A |
+|   2 | rekha   |  4000 | s.e |
+|   3 | murali  | 27000 | DBA |
+|   4 | pradeep | 30000 | s.e |
++-----+---------+-------+-----+
+4 rows in set (0.00 sec)
+
+
+
+mysql> select count(*) from employee;
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.05 sec)
+
+
+mysql> select sum(sal) from employee;
++----------+
+| sum(sal) |
++----------+
+|    64500 |
++----------+
+1 row in set (0.03 sec)
+
+
+mysql> select avg(sal) from employee;
++------------+
+| avg(sal)   |
++------------+
+| 16125.0000 |
++------------+
+1 row in set (0.00 sec)
+
+
+mysql> select max(sal) from employee;
++----------+
+| max(sal) |
++----------+
+|    30000 |
++----------+
+1 row in set (0.04 sec)
+
+
+
+mysql> select min(sal) from employee;
++----------+
+| min(sal) |
++----------+
+|     3500 |
++----------+
+1 row in set (0.00 sec)

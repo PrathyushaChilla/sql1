@@ -1,0 +1,209 @@
+create table student29(id int(10) primary key,name char(20) not null,course char(10) not null);
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> desc student29;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| id     | int(10)  | NO   | PRI | NULL    |       |
+| name   | char(20) | NO   |     | NULL    |       |
+| course | char(10) | NO   |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+3 rows in set (0.04 sec)
+
+
+ insert into student29(id,name,course)
+    -> values('1','Raj','MCA');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into student29(id,name,course)
+    -> values('2','sudheer','Btech');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into student29(id,name,course)
+    -> values('3','Mahesh','BSC');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into student29(id,name,course)
+    -> values('4','mani','Bcom');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into student29(id,name,course)
+    -> values('5','ram','BA');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from student29;
++----+---------+--------+
+| id | name    | course |
++----+---------+--------+
+|  1 | Raj     | MCA    |
+|  2 | sudheer | Btech  |
+|  3 | Mahesh  | BSC    |
+|  4 | mani    | Bcom   |
+|  5 | ram     | BA     |
++----+---------+--------+
+5 rows in set (0.00 sec)
+
+
+
+mysql> select course from student29;
++--------+
+| course |
++--------+
+| MCA    |
+| Btech  |
+| BSC    |
+| Bcom   |
+| BA     |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student29 where id=1;
++----+------+--------+
+| id | name | course |
++----+------+--------+
+|  1 | Raj  | MCA    |
++----+------+--------+
+1 row in set (0.06 sec)
+
+
+ alter table student29 add phno int(10) after course;
+Query OK, 0 rows affected (1.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student29;
++----+---------+--------+------+
+| id | name    | course | phno |
++----+---------+--------+------+
+|  1 | Raj     | MCA    | NULL |
+|  2 | sudheer | Btech  | NULL |
+|  3 | Mahesh  | BSC    | NULL |
+|  4 | mani    | Bcom   | NULL |
+|  5 | ram     | BA     | NULL |
++----+---------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql> alter table student29 modify course char(25);
+Query OK, 5 rows affected (0.91 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> desc student29;
++--------+----------+------+-----+---------+-------+
+| Field  | Type     | Null | Key | Default | Extra |
++--------+----------+------+-----+---------+-------+
+| id     | int(10)  | NO   | PRI | NULL    |       |
+| name   | char(20) | NO   |     | NULL    |       |
+| course | char(25) | YES  |     | NULL    |       |
+| phno   | int(10)  | YES  |     | NULL    |       |
++--------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> alter table student29 drop column phno;
+Query OK, 0 rows affected (0.58 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student29;
++----+---------+--------+
+| id | name    | course |
++----+---------+--------+
+|  1 | Raj     | MCA    |
+|  2 | sudheer | Btech  |
+|  3 | Mahesh  | BSC    |
+|  4 | mani    | Bcom   |
+|  5 | ram     | BA     |
++----+---------+--------+
+5 rows in set (0.00 sec)
+
+
+
+mysql> delete from student29 where id='1';
+Query OK, 1 row affected (0.15 sec)
+
+mysql> select * from student29;
++----+---------+--------+
+| id | name    | course |
++----+---------+--------+
+|  2 | sudheer | Btech  |
+|  3 | Mahesh  | BSC    |
+|  4 | mani    | Bcom   |
+|  5 | ram     | BA     |
++----+---------+--------+
+4 rows in set (0.00 sec)
+
+
+
+mysql> update student29 set name='sai' where id='2';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student29;
++----+--------+--------+
+| id | name   | course |
++----+--------+--------+
+|  2 | sai    | Btech  |
+|  3 | Mahesh | BSC    |
+|  4 | mani   | Bcom   |
+|  5 | ram    | BA     |
++----+--------+--------+
+4 rows in set (0.00 sec)
+
+
+
+mysql> select * from student29 order by name;
++----+--------+--------+
+| id | name   | course |
++----+--------+--------+
+|  3 | Mahesh | BSC    |
+|  4 | mani   | Bcom   |
+|  5 | ram    | BA     |
+|  2 | sai    | Btech  |
++----+--------+--------+
+4 rows in set (0.04 sec)
+
+mysql> select * from student29 order by course;
++----+--------+--------+
+| id | name   | course |
++----+--------+--------+
+|  5 | ram    | BA     |
+|  4 | mani   | Bcom   |
+|  3 | Mahesh | BSC    |
+|  2 | sai    | Btech  |
++----+--------+--------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from student29;
++----+----------+--------+
+| id | name     | course |
++----+----------+--------+
+|  1 | raj      | Bcom   |
+|  2 | sai      | Btech  |
+|  3 | Mahesh   | BSC    |
+|  4 | mani     | Bcom   |
+|  5 | ram      | BA     |
+|  6 | nagamani | Bsc    |
++----+----------+--------+
+6 rows in set (0.00 sec)
+
+
+mysql> select course from student29 group by course;
++--------+
+| course |
++--------+
+| BA     |
+| Bcom   |
+| BSC    |
+| Btech  |
++--------+
+4 rows in set (0.04 sec)
+
+mysql> select course from student29 group by course having course='Bcom';
++--------+
+| course |
++--------+
+| Bcom   |
++--------+
+1 row in set (0.04 sec)
+
+
+
